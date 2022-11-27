@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Update Product";
+}
+@model thistask.Models.thisclass
+
+<div class="jumbotron">
+    @if (@Model.ProductId > 0)
+    {
+        <p>Update Details of Product</p>
+    }
+    else
+    {
+        <p>Add Details of Product</p>
+    }
+
+    <h1>
+    </h1>
+
+</div>
+
+<div class="row">
+    @if (@Model.ProductId > 0)
+    {
+        <form action="/Home/UpdateProduct" method="post" class="loginbox">
+            <label class="lblname"> Category Name:- </label>
+            @*@Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.CategoryList, "", new { @class = "form-control", @id = "CategoryId" })*@
+
+
+            <label class="lblname"> Product Name:- </label>
+            <input type="text" value="@Model.ProductName" name="ProductName" size="100" required /><br>
+            <input type="hidden" value="@Model.ProductId" name="ProductId" size="100" /><br>
+            <br />
+            <button type="submit" class="btnsubmit">UPDATE</button>&nbsp;&nbsp;&nbsp;
+            <a href="/Home/ProductList"> Cancel</a>
+        </form>
+    }
+    else
+    {
+        <form action="/Home/CreateProduct" method="post" class="loginbox">
+            <label class="lblname"> Product Name:- </label>
+            <input type="text" value="@Model.ProductName" name="ProductName" size="100" required /><br>
+            <input type="hidden" value="@Model.ProductId" name="ProductId" size="100" /><br>
+            <br />
+            <button type="submit" class="btnsubmit">ADD</button>&nbsp;&nbsp;&nbsp;
+            <a href="/Home/ProductList"> Cancel</a>
+        </form>
+    }
+</div>

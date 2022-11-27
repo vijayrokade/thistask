@@ -1,0 +1,70 @@
+﻿@model thistask.Models.thisclass
+@{
+    ViewBag.Title = "create";
+}
+
+<Html>
+<head>
+    <title>
+        Registration Page
+    </title>
+
+    <link href="~/Content/mycss.css" rel="stylesheet" />
+</head>
+<body class="body">
+
+    <div>
+        <br>
+        <br />
+        <h3 align="left" style="color:red; font-family: serif; font-weight: bold; font-size: 25px">Register Here</h3>
+        <form action="/Home/create" method="post" class="loginbox">
+
+            <label class="lblname">  Name:- </label>
+            <input type="text" name="name" size="15" class="txtname" required /><br>
+            <label class="lblpass">Email:- </label>
+            <input type="email" id="email" name="email" size="15" required /><br><br>
+
+            <label class="lblpass">Password:- </label>
+            <input type="password" id="pass" name="Password" size="15" class="txtcpass" minlength="4" required><br><br/>
+       
+            <label class="lblpass">Mobile No:-</label><br />
+            <input type="text" name="mobilenumber" pattern="[6789][0-9]{8}" title="Please enter 9 digit valid phone number" required>
+           
+
+            <label class="lblpass">Department:-</label><br />
+            <input type="text" name="Department" size="15" class="txtname" required /><br><br />
+            <label class="lblpass">Address:-</label><br />
+            <input type="text" name="Address" size="15" class="txtname" /><br><br />
+
+            <label class="lblpass">Designation:-</label><br />
+            <select id="id" name="Designation" class="txtname" required>
+                 <option></option>
+                <option>Program Maneger</option>
+                <option>Software Engg</option>
+                <option>Trainee Engg</option>
+                <option>System Analyst</option>
+                <option>Project Manager</option>
+
+                @*<input type="text" name="Designation" size="15" class="txtname" />*@
+            </select>
+            <br>
+            <br />
+
+            <button type="submit" class="btnsubmit">Register </button>&nbsp;&nbsp;&nbsp;
+            <a href="/Home/List"> Cancel</a>
+
+
+
+            <div>
+                <label>@ViewBag.msg</label>
+            </div>
+        </form>
+    </div>
+ 
+
+</body>
+</Html>
+
+
+
+

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Update Category";
+}
+
+<div class="jumbotron">
+    @if (@Model.CategoryId > 0)
+    {
+        <p>Update Details of Category</p>
+    }
+    else
+    {
+        <p>Add Details of Category</p>
+    }
+
+    <h1>
+    </h1>
+
+</div>
+
+<div class="row">
+    @if (@Model.CategoryId > 0)
+    {
+        <form action="/Home/UpdateCategory" method="post" class="loginbox">
+            <label class="lblname"> Category Name:- </label>
+            <input type="text" value="@Model.CategoryName" name="CategoryName" size="100" required /><br>
+            <input type="hidden" value="@Model.CategoryId" name="CategoryId" size="100" /><br>
+            <br />
+            <button type="submit" class="btnsubmit">Save</button>&nbsp;&nbsp;&nbsp;
+            <a href="/Home/CategoryList"> Cancel</a>
+        </form>
+    }
+    else
+    {
+        <form action="/Home/CreateCategory" method="post" class="loginbox">
+            <label class="lblname"> Category Name:- </label>
+            <input type="text" value="@Model.CategoryName" name="CategoryName" size="100" required /><br>
+            <input type="hidden" value="@Model.CategoryId" name="CategoryId" size="100" /><br>
+            <br />
+            <button type="submit" class="btnsubmit">Save</button>&nbsp;&nbsp;&nbsp;
+            <a href="/Home/CategoryList"> Cancel</a>
+        </form>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@model thistask.Models.thisclass
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Content/mycss.css" rel="stylesheet" />
+</head>
+<body class="body1">
+    <div align="left">
+        <br />
+
+        <h3><a href="/Home/create">Register Employee</a></h3>
+        <form action="/Home/takeData" method="post" class="abcf">
+
+            <label class="lblname1">Select ID :</label> <select name="Id">
+                <option>--select--</option>
+                @for (int i = 0; i < Model.Idlist.Count; i++)
+                {
+                    <option>@Model.Idlist[i]</option>
+    
+                }
+
+            </select>
+
+    
+            <button type="submit" class="btnlogin">SELECT</button>
+        </form>  <br />   <br />
+
+
+        <div class="tbldiv">
+            <table border="1" class="tbl">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    @*<th>Mobile No.</th> <th>Email</th><th>Password</th>
+        <th>Designation</th><th>Department</th>*@
+                    <th>Edit</th>
+                </tr>
+                    @for (int i = 0; i < Model.Idlist.Count; i++)
+                    {
+<tr>
+    <td>@Model.Idlist[i]</td>
+    <td>@Model.namelist[i]</td>
+    @*<td>@Model.mobilenumberlist[i]</td>
+        <td>@Model.emaillist[i]</td>
+        <td>@Model.paswordlist[i]</td>
+        <td>@Model.Designationlist[i]</td>
+        <td>@Model.Departmentlist[i]</td>*@
+    <td>
+    <a a href="/Home/CategoryDetails?CategoryId=@Model.Idlist[i]">Click to Edit </a></td>
+</tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

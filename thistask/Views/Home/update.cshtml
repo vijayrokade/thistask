@@ -1,0 +1,32 @@
+﻿@model thistask.Models.thisclass
+@{
+    ViewBag.Title = "update";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Content/mycss.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+
+        <div id="login-box">
+            <div class="left">
+                <h2>Record Updated Successfully</h2><br /><br />
+                <form action="/Home/update" method="post">
+                    <a href="/Home/List"><h4>Go back to List</h4></a><br />
+                    <a href="/Home/create"><h4>Want to create new record</h4></a>
+                </form>
+            </div>
+            <div class="right">
+
+            </div>
+        </div>
+    </div>
+    <h5>@ViewBag.msg</h5>
+</body>
+</html>

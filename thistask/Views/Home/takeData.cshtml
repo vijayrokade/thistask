@@ -1,0 +1,54 @@
+﻿@model thistask.Models.thisclass
+@{
+    ViewBag.Title = "takeData";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Content/mycss.css" rel="stylesheet" />
+</head>
+<body class="body1">
+
+    <div align="center">
+        <br /><br />
+        <h3 align="center" style="color:red; font-family:serif; font-weight: bold; font-size: 25px">Update or Delete</h3>
+        <form action="/Home/update" method="post" class="loginbox">
+            <label class="lblname">Id:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="Id" size="15" class="txtname" value="@Model.Id" /><br />
+            <label class="lblname">  Name:- </label>
+            <input type="text" name="name" size="15" class="txtname" value="@Model.name" required/><br />
+            <label class="lblname"> Mob.Number:- </label>
+            <input type="number" name="mobilenumber" size="15" pattern="[6789][0-9]{8}" title="Please enter 9 digit valid phone number" class="txtname" value="@Model.mobilenumber" required/><br /><br />
+            <label class="lblname"> Email:- </label>
+            <input type="email" name="email" id="email" size="15" class="txtname" value="@Model.email" required/><br />
+            <label class="lblname"> Password:- </label>
+            <input type="text" id="pass" name="password" minlength="4" size="15" class="txtname" value="@Model.password" required/><br />
+            <label class="lblname"> Address:- </label>
+            <input type="text" name="Address" size="15" class="txtname" value="@Model.Address" /><br />
+            <label class="lblname"> Department:- </label>
+            <input type="text" name="Department" size="15" class="txtname" value="@Model.Department" required/><br />
+            <label class="lblname"> Designation:- </label>
+            <select id="id" name="Designation" class="txtname" required>
+                <option></option>
+                <option>Program Maneger</option>
+                <option>Software Engg</option>
+                <option>Trainee Engg</option>
+                <option>System Analyst</option>
+                <option>Project Manager</option>
+
+                @*<input type="text" name="Designation" size="15" class="txtname" />*@
+            </select>
+
+            <button type="submit" name="signup_submit" class="btnsubmit">Update</button>&nbsp;
+            &nbsp;&nbsp;<a class="del" href="/Home/deletedata?Id=@Model.Id">Delete</a><br />
+        </form>
+    </div>
+    <label>@ViewBag.msg</label>
+
+</body>
+</html>
+
+
+

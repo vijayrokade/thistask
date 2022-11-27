@@ -1,0 +1,67 @@
+﻿@model thistask.Models.thisclass
+@{
+    ViewBag.Title = "Category List";
+}
+
+<h2>List</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Content/mycss.css" rel="stylesheet" />
+</head>
+<body class="body1">
+    <div align="left">
+        <br />
+            @if (@Model.CategoryId > 0)
+            {
+                <a href="/Home/CategoryUpdate">Update Category</a>
+            }
+        else
+        {
+            <a href="/Home/CategoryDetails">Add Category</a>
+        }
+        <form action="/Home/takeData" method="post" class="abcf">
+
+            @*<label class="lblname1">Select ID :</label> <select name="Id">
+                <option>--select--</option>
+                @for (int i = 0; i < Model.Idlist.Count; i++)
+                {
+                    <option>@Model.Idlist[i]</option>
+
+                }
+
+            </select>*@
+
+
+            @*            <button type="submit" class="btnlogin">SELECT</button>*@
+        </form>  <br />   <br />
+
+
+        <div class="tbldiv">
+            <table border="1" class="tbl">
+                <tr>
+                    <th>Sr. No. </th>
+                    <th>Category Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                </tr>
+                @for (int i = 0, j=1; i < Model.Idlist.Count; i++, j++)
+                {
+                    <tr>
+                        <td>@j</td>
+                        <td>@Model.namelist[i]</td>
+                        <td>
+                            <a a href="/Home/CategoryDetails?CategoryId=@Model.Idlist[i]">Click to Edit </a>
+                        </td>
+                        <td>
+                            <a a href="/Home/DeleteCategory?CategoryId=@Model.Idlist[i]">Click to Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>
